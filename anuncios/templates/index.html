@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -43,34 +45,32 @@
         <div class="ui stackable grid">
             <div class="four wide column">
                 <div class="ui inverted vertical fluid menu">
+                    {% for categoria in categorias %}
                     <a class="item">
-                      Inbox
+                      {{ categoria }}
                     </a>
-                    <a class="item">
-                      Spam
-                    </a>
-                    <a class="item">
-                      Updates
-                    </a>
+                    {% endfor %}
                   </div>
             </div>
             <div class="twelve wide column">
                 cards de anuncios
                 <div class="ui three column stackable grid">
                     <div class="ui fluid link cards">
+                        {% for anuncio in anuncios %}
                         <div class="card">
                           <div class="image">
-                            <img src="/images/avatar2/large/matthew.png">
+                            <img src="{% static 'anuncios/img/img.png' %}">
                           </div>
                           <div class="content">
                             <div class="header">
-                                Nome do produto
+                                {{ anuncio.titulo }}
                             </div>
                             <div class="description">
-                                decrição
+                                R$: {{ anuncio.preco }}
                             </div>
                           </div>
-                        </div>      
+                        </div>
+                        {% endfor %}      
                     </div>
                 </div>
             </div>
