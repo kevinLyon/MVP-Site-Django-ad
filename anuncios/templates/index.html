@@ -15,14 +15,8 @@
         <div class="sixteen wide column">
             <div class="ui inverted attached segment">
                 <div class="ui inverted secondary menu">
-                    <a class="item">
-                        Home
-                    </a>
-                    <a class="item">
-                        Messages
-                    </a>
-                    <a class="item">
-                        Friends
+                    <a href="{% url 'home' %}" class="item">
+                        HOME-Teste-Django
                     </a>
                     <div class="right menu">
                         <div class="ui category search">
@@ -46,33 +40,20 @@
             <div class="four wide column">
                 <div class="ui inverted vertical fluid menu">
                     {% for categoria in categorias %}
-                    <a class="item">
+                    <a href="{% url 'categoria' categoria.id %}" class="item">
                       {{ categoria }}
                     </a>
                     {% endfor %}
                   </div>
             </div>
             <div class="twelve wide column">
-                cards de anuncios
-                <div class="ui three column stackable grid">
-                    <div class="ui fluid link cards">
-                        {% for anuncio in anuncios %}
-                        <div class="card">
-                          <div class="image">
-                            <img src="{% static 'anuncios/img/img.png' %}">
-                          </div>
-                          <div class="content">
-                            <div class="header">
-                                {{ anuncio.titulo }}
-                            </div>
-                            <div class="description">
-                                R$: {{ anuncio.preco }}
-                            </div>
-                          </div>
-                        </div>
-                        {% endfor %}      
-                    </div>
-                </div>
+                {% if categorias %}
+                <h1 class="ui header">{{ categoria }}</h1>
+                {% endif %}
+                
+                {% block cards %}
+                RENDER CARDS!!
+                {% endblock %}
             </div>
         </div>
     </div>

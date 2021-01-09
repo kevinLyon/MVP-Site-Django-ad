@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block cards %}
+<div class="ui three column stackable grid">
+    <div class="ui fluid link cards">
+        {% for anuncio in anuncios %}
+        <div class="card" onclick="window.location='//URL';">
+          <div class="image">
+            <img src="{% static 'anuncios/img/img.png' %}">
+          </div>
+          <div class="content">
+            <div class="header">
+                {{ anuncio.titulo }}
+            </div>
+            <div class="description">
+                R$: {{ anuncio.preco }}
+            </div>
+          </div>
+        </div>
+        {% empty %}
+          <p class="ui header"><br>Nenhum anúncio encontrádo!</p>
+        {% endfor %}      
+    </div>
+</div>
+{% endblock %}
