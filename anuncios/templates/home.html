@@ -4,17 +4,17 @@
 {% block cards %}
 <div class="ui three column stackable grid">
     <div class="ui fluid link cards">
-        {% for anuncio in anuncios %}
-        <div class="card" onclick="window.location='//URL';">
+        {% for anun in anuncios %}
+        <div class="card">
           <div class="image">
             <img src="{% static 'anuncios/img/img.png' %}">
           </div>
           <div class="content">
             <div class="header">
-                {{ anuncio.titulo }}
+                <a href="{% url 'anuncio' anun.id %}">{{ anun.titulo }}</a>
             </div>
             <div class="description">
-                R$: {{ anuncio.preco }}
+                R$: {{ anun.preco }}
             </div>
           </div>
         </div>
