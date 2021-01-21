@@ -13,13 +13,17 @@
 <div class="ui grid">
   <div class="sixteen wide column">
     <div class="ui image">
-      <img src="{% static 'anuncios/img/img.png' %}">
+      {% if anuncio.imagem %}
+        <img src="{{ anuncio.imagem.url }}">
+      {% else %}
+        <img src="{% static 'anuncios/img/img.png' %}">
+      {% endif %}
     </div>
   </div>
 
   <div class="sixteen wide column">
     <h2 class="ui header">Preço: R$ {{ anuncio.preco }}</h2>
-    <h2 class="ui header">Descrição</h2>
+    <h3 class="ui header">Descrição</h3>
     {% if anuncio.descricao %}
       <p>{{ anuncio.descricao }}</p>
     {% else %}

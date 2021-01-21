@@ -7,7 +7,11 @@
         {% for anun in anuncios %}
         <div class="card">
           <div class="image">
-            <img src="{% static 'anuncios/img/img.png' %}">
+            {% if anun.imagem %}
+              <img src="{{ anun.imagem.url }}">
+            {% else %}
+              <img src="{% static 'anuncios/img/img.png' %}">
+            {% endif %}
           </div>
           <div class="content">
             <div class="header">

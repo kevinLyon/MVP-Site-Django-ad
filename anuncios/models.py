@@ -17,6 +17,7 @@ class Anuncio(models.Model):
     descricao = models.TextField(null=True, blank=True)
     preco = models.DecimalField(max_digits=11, decimal_places=2)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    imagem = models.ImageField(null=True, blank=True, upload_to='imagens')
     criado_em = models.DateTimeField(auto_now_add=True)
     modificado_em = models.DateTimeField(auto_now=True)
 
